@@ -1,15 +1,16 @@
 # 导航站 - 磨砂玻璃风格
 
-一个现代化的导航站，采用磨砂玻璃UI设计，使用阿里巴巴图标库。
+一个现代化的导航站，采用磨砂玻璃UI设计，专门用于展示朋友在B站关注的Vup。
 
 ## 功能特性
 
 - 🎨 **磨砂玻璃UI** - 使用CSS backdrop-filter实现的毛玻璃效果
-- 🏷️ **分类导航** - 按工作、学习、娱乐、工具、社交分类
-- 🔍 **搜索功能** - 实时搜索网站名称和描述
+- 📺 **Vup导航** - 专门展示B站Vup直播链接
+- 🔍 **搜索功能** - 实时搜索Vup名称和描述
 - 📱 **响应式设计** - 适配各种屏幕尺寸
-- 🎯 **阿里巴巴图标库** - 使用iconfont.cn的图标
+- ⭐ **Font Awesome图标** - 使用Font Awesome图标库
 - 🖼️ **自定义背景** - 支持自定义背景图片
+- 🔒 **隐私保护** - 防止搜索引擎索引
 
 ## 项目结构
 
@@ -18,118 +19,87 @@ daohangzhan/
 ├── index.html          # 主页面
 ├── style.css          # 样式文件
 ├── script.js          # 交互脚本
-├── girl_cloak_road_1075362_3840x2160.jpg  # 背景图片
-├── vercel.json        # Vercel部署配置
+├── main.jpg           # 背景图片
 └── README.md          # 说明文档
 ```
+
+## 技术实现
+
+### 前端技术
+- **HTML5** - 语义化标签结构
+- **CSS3** - 磨砂玻璃效果、响应式布局、过渡动画
+- **JavaScript** - 动态内容渲染、搜索过滤、交互功能
+
+### 核心特性
+1. **磨砂玻璃效果**：使用`backdrop-filter: blur()`实现
+2. **背景图片优化**：预加载图片，加载完成后平滑显示
+3. **搜索过滤**：实时过滤Vup列表
+4. **防止索引**：添加`<meta name="robots">`标签防止搜索引擎收录
+
+### 图标库
+- 使用Font Awesome 6.4.0图标库
+- 通过CDN加载，确保图标稳定显示
 
 ## 使用方法
 
 ### 本地运行
-
 1. 直接在浏览器中打开 `index.html` 文件
-2. 或使用任何HTTP服务器：
+2. 或使用HTTP服务器：
    ```bash
    # 使用Python
    python -m http.server 8000
-   
-   # 使用Node.js
-   npx serve .
    ```
 
-### 部署到Vercel
-
-1. 安装Vercel CLI：
-   ```bash
-   npm i -g vercel
-   ```
-
-2. 部署项目：
-   ```bash
-   vercel
-   ```
-
-3. 或通过GitHub部署：
-   - 将项目推送到GitHub仓库
-   - 访问 [vercel.com](https://vercel.com)
-   - 导入GitHub仓库
-   - 自动部署完成
+### 功能说明
+1. **搜索功能**：在右上角搜索框中输入关键词，实时过滤Vup列表
+2. **点击跳转**：点击任意Vup卡片，会在新标签页打开B站直播间
+3. **背景优化**：背景图片加载完成后平滑显示，避免刷新黑屏
 
 ## 自定义配置
 
-### 修改网站列表
-
+### 修改Vup列表
 编辑 `script.js` 文件中的 `websites` 数组：
-
 ```javascript
 const websites = [
     {
         id: 1,
-        name: "网站名称",
-        description: "网站描述",
-        url: "https://example.com",
+        name: "Vup名称",
+        description: "描述",
+        url: "直播间链接",
         category: "分类",
-        icon: "icon-图标名称"
+        icon: "fas fa-tv"
     },
-    // 更多网站...
-];
-```
-
-### 修改分类
-
-编辑 `script.js` 文件中的 `categories` 数组：
-
-```javascript
-const categories = [
-    { id: "all", name: "全部", icon: "icon-apps" },
-    { id: "work", name: "工作", icon: "icon-work" },
-    // 更多分类...
+    // 更多Vup...
 ];
 ```
 
 ### 更换背景图片
+1. 将新图片命名为 `main.jpg`
+2. 替换项目根目录下的 `main.jpg` 文件
+3. 确保图片尺寸合适（建议3840x2160或类似比例）
 
-1. 将新的背景图片放入项目根目录
-2. 修改 `style.css` 文件中的背景图片路径：
-   ```css
-   .background-overlay {
-       background-image: url('你的图片文件名.jpg');
-   }
-   ```
+### 修改样式
+编辑 `style.css` 文件：
+- 调整磨砂玻璃效果：修改`.background-overlay`的`filter`属性
+- 修改颜色方案：调整各元素的颜色值
+- 调整布局：修改容器尺寸和间距
 
-### 使用自定义图标库
+## 注意事项
 
-1. 访问 [iconfont.cn](https://www.iconfont.cn)
-2. 创建图标项目并添加图标
-3. 获取CSS链接
-4. 修改 `index.html` 中的图标库链接：
-   ```html
-   <link rel="stylesheet" href="你的图标库链接.css">
-   ```
+1. **浏览器兼容性**：磨砂玻璃效果需要现代浏览器支持
+2. **图片优化**：背景图片建议压缩以加快加载速度
+3. **隐私保护**：已添加防止搜索引擎索引的meta标签
+4. **图标显示**：需要网络连接以加载Font Awesome图标库
 
-## 技术栈
+## 更新记录
 
-- HTML5
-- CSS3 (Flexbox, Grid, backdrop-filter)
-- JavaScript (ES6+)
-- 阿里巴巴图标库 (iconfont)
-- Google Fonts (Inter字体)
-
-## 浏览器支持
-
-- Chrome 76+
-- Firefox 70+
-- Safari 13+
-- Edge 79+
+### 当前版本
+- 简化设计，专注于Vup导航
+- 移除语言切换功能
+- 优化背景图片加载体验
+- 添加防止搜索引擎索引功能
+- 使用Font Awesome图标库
 
 ## 许可证
 
-MIT License
-
-## 贡献
-
-欢迎提交Issue和Pull Request！
-
-## 联系
-
-如有问题或建议，请通过GitHub Issues反馈。
+本项目仅供个人学习使用。
