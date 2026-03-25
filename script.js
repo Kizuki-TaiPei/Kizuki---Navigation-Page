@@ -101,7 +101,7 @@ window.renderWebsites = function(filteredWebsites) {
 function updateWebsiteCount(count) {
     const heroSection = document.querySelector('.hero p');
     if (heroSection) {
-        const originalText = '朋友D的Vup，关注她的你，一定会喜欢上她的！';
+        const originalText = 'D的Vup，关注她的你，一定会喜欢上她的！';
         heroSection.textContent = originalText;
     }
 }
