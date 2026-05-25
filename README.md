@@ -140,7 +140,7 @@ const websites = [
 ## 📦 相關連結
 
 - **項目倉庫** - https://github.com/Kizuki-TaiPei/Kizuki---Navigation-Page
-- **在線訪問** - https://kizuki-navigation-page.vercel.app
+- **在線訪問** - https://lzg.kizuki.wiki/****
 
 ## 🎓 貢獻
 
